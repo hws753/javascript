@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Javascript Function</h1>
+    <h2>Callback Function</h2>
+    <p>Il problema con il primo esempio sopra è che è necessario chiamare due funzioni per visualizzare il risultato.
+        Il problema con il secondo esempio è che non è possibile impedire alla funzione calcolatrice di visualizzare il
+        risultato.
+        Adesso è il momento di effettuare un callback. <br>
+        Un callback è una funzione passata come argomento a un'altra funzione.
+        Utilizzando un callback, è possibile chiamare la funzione calcolatrice ( myCalculator) con un callback (
+        myCallback) e lasciare che la funzione calcolatrice esegua il callback una volta terminato il calcolo:
+    </p>
+
+
+    <p>The result of the calculation is:</p>
+    <p id="demo"></p>
+
+    <script>
+        function myDisplayer(something) {
+            document.getElementById("demo").innerHTML = something;
+        }
+
+        function myCalculator(num1, num2, myCallback) {
+            let sum = num1 + num2;
+            myCallback(sum);
+        }
+
+        myCalculator(5, 5, myDisplayer);//Quando si passa una funzione come argomento, ricordarsi di non usare le parentesi.
+    </script>
+</body>
+
+</html>
