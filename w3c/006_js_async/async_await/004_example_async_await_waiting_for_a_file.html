@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Definisce la codifica dei caratteri come UTF-8 per supportare caratteri speciali -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Rende la pagina responsive sui dispositivi mobili -->
+    <title>Document</title> <!-- Titolo della pagina mostrato nella scheda del browser -->
+</head>
+<body>
+    <h1>Javascript Async/Await: waiting for a file!</h1> <!-- Titolo della pagina -->
+    
+    <div id="demo"></div> <!-- Elemento dove verrà caricato il contenuto del file index.html -->
+
+    <script>
+        // Definizione di una funzione asincrona per caricare un file HTML
+        async function getFile() {
+            try {
+                // Effettua una richiesta HTTP GET per ottenere il file "index.html" dalla cartella "my_car"
+                let response = await fetch("./my_car/index.html");
+
+                // Controlla se la risposta HTTP è stata ricevuta correttamente (status code 200-299)
+                if (!response.ok) {
+                    throw new Error("File not found!"); // Se il file non viene trovato o c'è un errore, genera un'eccezione
+                }
+
+                // Legge il contenuto della risposta come testo
+                let data = await response.text();
+                
+                // Inserisce il contenuto del file "index.html" dentro il div con id "demo"
+                document.getElementById("demo").innerHTML = data;
+
+            } catch (error) {
+                // Se si verifica un errore (es. file non trovato), mostra il messaggio di errore dentro il div "demo"
+                document.getElementById("demo").innerHTML = error.message;
+            }
+        }
+
+        // Chiama la funzione per caricare il file appena la pagina viene caricata
+        getFile();
+    </script>
+</body>
+</html>
+
