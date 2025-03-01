@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"> <!-- Definisce la codifica dei caratteri come UTF-8 per supportare caratteri speciali -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Rende la pagina responsive sui dispositivi mobili -->
+    <title>Document</title> <!-- Titolo della pagina mostrato nella scheda del browser -->
+</head>
+
+<body>
+    <h1>Fetch API</h1> <!-- Titolo della pagina -->
+
+    <p id="output">Fetch a file to change this text.</p> <!-- Paragrafo in cui verrà mostrato il contenuto del file -->
+
+    <button onclick="fetchFile()">Fetch File</button> <!-- Bottone per avviare la richiesta -->
+
+    <script>
+        let file = "./fetch/fetch_info.txt"; // Percorso del file di testo da recuperare
+
+        // Funzione che esegue il fetch del file quando viene premuto il bottone
+        function fetchFile() {
+            fetch(file) // Effettua una richiesta HTTP GET per ottenere il file
+                .then(x => x.text()) // Converte la risposta HTTP in una stringa di testo
+                .then(y => document.getElementById("output").innerHTML = y) // Inserisce il contenuto del file nel <p> con id "output"
+                .catch(error => document.getElementById("output").innerHTML = "Error: " + error); // Gestisce eventuali errori
+        }
+    </script>
+</body>
+
+</html>

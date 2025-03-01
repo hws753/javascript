@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetch API</h1>
+    <p id="demo">Fetch a file to change this tetx.</p>
+    <button onclick="fetchFile()">Fetch File</button>
+
+    <script>
+        let file = "./fetch/fetch_info.txt";
+        async function fetchFile(){
+            let x = await fetch(file);
+            let y = await x.text();
+            document.getElementById("demo").innerHTML = y;
+        }    
+    </script>
+</body>
+</html>
