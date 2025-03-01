@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Javascript Functions</h1>
+    <h2>setTimeout() with a Callback</h2>
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+    <h1 id="demo"></h1>
+    <!-- When using the JavaScript function setTimeout(), you can specify a callback function to be executed on time-out.
+    In the example above, myFunction is used as a callback.
+    myFunction is passed to setTimeout() as an argument.
+    3000 is the number of milliseconds before time-out, so myFunction() will be called after 3 seconds. -->
+    <script>
+        setTimeout(myFunction, 3000);
+
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "Bye, bye!"
+        }
+    </script>
+</body>
+
+</html>

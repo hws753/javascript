@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Javascript Functions</h1>
+    <h2>setTimeout() with a Callback</h2>
+    <p>Wait 3 seconds (3000 milliseconds) for this page to change.</p>
+    <!-- Instead of passing the name of a function as an argument to another function, you can always pass a whole function instead:
+    In the example below, function(){ myFunction("I love You !!!"); } is used as a callback. It is a complete function. The complete function is passed to setTimeout() as an argument.
+    3000 is the number of milliseconds before time-out, so myFunction() will be called after 3 seconds. -->
+    <h1 id="demo"></h1>
+    <script>
+        setTimeout(function () { myFunction("Bye, bye!"); }, 3000);
+
+        function myFunction(value) {
+            document.getElementById("demo").innerHTML = value;
+        }
+    </script>
+</body>
+
+</html>

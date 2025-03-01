@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Javascript Promises Example: Simulating an API CALL</h1>
+    <button on click="fetchDataHandler()">Fetch Data</button>
+    <p id="output"></p>
+
+    <script>
+
+        function myDiplayer(something){
+            document.getElementById("output").innerHTML = JSON.stringify(something, null, 2);;
+        }
+
+        function fetchData() {//Simulates the start of an API request.
+            return new Promise((resolve, reject) => {
+                console.log("Fetching data ...");
+
+                setTimeout(() => {//Simulates a network delay of 2 seconds.
+                    const success = Math.random() > 0.2;//Simulate an 80% success rate
+
+                    if (success) {
+                        resolve({ id: 1, name: "Dario", role: "Instructor" });// Resolve the promise with data
+                    } else {
+                        reject("Error retrieving data!"); //Reject the promise with an error message
+                    }
+                }, 2000);
+            });
+        }
+        //Consumeng the Promise
+        fetchData().then(data => {//Handles the success case when data is received.
+            myDiplayer(data);
+            console.log("Data received : ", data);//This runs is the Promise is resolved
+        }).catch(error => {//Handles the error case if something goes wrong.
+            myDiplayer(data);
+            console.error("An error occurred: ", error); //This runs if the Promise is rejected
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript Functions</h1>
+    <h2>setinterval() with a Callback</h2>
+    <p>Using setInterval() to display the time every seconds (1000 millisexonds).</p>
+    <!-- When using the JavaScript function setInterval(), you can specify a callback function to be executed for each interval.
+    In the example above, myFunction is used as a callback.
+    myFunction is passed to setInterval() as an argument.
+    1000 is the number of milliseconds between intervals, so myFunction() will be called every second. -->
+    <h1 id="demo"></h1>
+
+    <script>
+        setInterval(myFunction, 1000);
+
+        function myFunction(){
+            let now = new Date();
+            document.getElementById("demo").innerHTML = 
+                now.getHours() + ":" +
+                now.getMinutes() + ":" +
+                now.getSeconds();
+        }
+    </script>
+</body>
+</html>
