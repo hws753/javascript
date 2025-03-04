@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>AJAX Example Explained</h1>
+    <h2>Let AJAX change text below</h2>
+    <!-- This div contains the text that will be replaced by the AJAX call -->
+    <div id="output">Text that will be replaced.</div>
+    <!-- This button triggers the AJAX call when clicked -->
+    <button type="button" onclick="loadDoc()">Change Content</button>
+    <script>
+        // Function to load the new content using AJAX
+        function loadDoc() {
+            const xhttp = new XMLHttpRequest(); // Create a new XMLHttpRequest object
+            xhttp.onload = function () {
+                // Callback function to execute when the request is successfully completed
+                document.getElementById("output").innerHTML = this.responseText; // Replace the div's content with the response text
+            }
+            xhttp.open("GET", "./text_to_be_published/text.txt", true); // Initialize the request
+            xhttp.send(); // Send the request to the server
+        }
+    </script>
+</body>
+
+</html>

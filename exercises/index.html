@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const user = {
+            name: "Mario",
+            greet: function () {
+                return ("Ciao, mi chiamo ${ this.name }");
+            }
+        };
+
+        console.log("chiamata a user.greet() " + user.greet()); // Ciao, mi chiamo Mario
+        const greet = user.greet;
+        console.log("chiamata a user.greet " + greet);
+        greet(); // this è undefined o window (dipende dalla modalità di esecuzione)
+
+
+        //Per risolvere il problema si può usare.bind():
+
+        const boundGreet = user.greet.bind(user);
+        console.log("chiamata a user.greet.bind(user): " + boundGreet()); // Ciao, mi chiamo Mario
+
+    </script>
+</body>
+
+</html>
